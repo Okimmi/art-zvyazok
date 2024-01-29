@@ -15,12 +15,12 @@ export const ProfileBox = () => {
   return (
     <>
       <ProfBox style={{ height: boxHeight }}>
-        {/* {!isProfOpen ? (
+        {!isProfOpen ? (
           <StyledArrowDown onClick={toggleProfBox} />
         ) : (
           <StyledArrowUp onClick={toggleProfBox} />
-        )} */}
-        {/* <ProfileInfo /> */}
+        )}
+        <ProfileInfo />
         <ChatMembers />
       </ProfBox>
     </>

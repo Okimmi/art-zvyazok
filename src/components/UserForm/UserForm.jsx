@@ -1,19 +1,11 @@
-import { selectUser } from 'Redux/selectors/authSelectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { selectUser } from 'Redux/selectors/authSelectors';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import profileImg from './userfoto.png';
 import {
-  DeleteBtn,
   SocialMediaList,
   SocialMediaItem,
   Text,
-  UserAnswers,
-  UserCard,
-  UserH3,
-  UserList,
-  UserSection,
-  UserSocial,
   PhotoBox,
   PhotoLoaderWrapper,
   UploadInput,
@@ -22,11 +14,9 @@ import { ReactComponent as Instagram } from '../../images/Instagram.svg';
 import { ReactComponent as Discord } from '../../images/discord.svg';
 import { ReactComponent as Telegram } from '../../images/telegram.svg';
 import { ReactComponent as Spotify } from '../../images/spotify.svg';
-import { EnterBtn } from 'components/EnterBox/Auth/Auth.styled';
 import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import { InputList, StyledForm } from 'components/EnterBox/EnterBox.styled';
 import { AuthInput } from 'components/AuthInput/AuthInput';
 import { Button } from 'components/Global/Button/Button';
@@ -46,9 +36,9 @@ const validationSchema = Yup.object({
 });
 
 export const UserForm = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const ActivUser = useSelector(selectUser);
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const ActivUser = useSelector(selectUser);
 
   const handleRefresh = () => {};
 

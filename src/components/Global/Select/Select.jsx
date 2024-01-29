@@ -5,7 +5,6 @@ import {
   FieldWrapper,
   StyledField,
 } from './Select.styled';
-import { useEffect } from 'react';
 
 export const Select = ({ isRequired, type, name, children }) => {
   const [field, meta] = useField(name);

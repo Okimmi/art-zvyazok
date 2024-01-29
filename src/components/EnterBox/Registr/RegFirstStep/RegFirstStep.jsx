@@ -1,10 +1,9 @@
 import { Formik } from 'formik';
-import {} from './RegFirstStep.styled';
 import { ReactComponent as GoogleIcon } from '../../../../images/devicon_google.svg';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { updateUserData } from 'Redux/actions';
+// import { updateUserData } from 'Redux/actions';
 import { useState } from 'react';
 import { AuthInput } from 'components/AuthInput/AuthInput';
 import {

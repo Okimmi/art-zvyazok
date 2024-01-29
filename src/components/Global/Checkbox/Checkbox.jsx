@@ -1,4 +1,4 @@
-import { Box, CustomCheckbox, Text, Wrapper } from './Checkbox.styled';
+import { Box, Text, Wrapper } from './Checkbox.styled';
 import { ReactComponent as CheckboxDone } from '../../../icons/check-box-done.svg';
 import { ReactComponent as CheckboxDef } from '../../../icons/check-box.svg';
 
