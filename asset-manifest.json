@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/art-zvyazok/static/css/main.1dd91de8.css",
+    "main.js": "/art-zvyazok/static/js/main.c1f12d7b.js",
+    "static/media/MontserratAlternates-Black.ttf": "/art-zvyazok/static/media/MontserratAlternates-Black.53c65844392081267032.ttf",
+    "static/media/MontserratAlternates-Regular.ttf": "/art-zvyazok/static/media/MontserratAlternates-Regular.17043267bfe178ef8921.ttf",
+    "static/media/Montserrat-Regular.ttf": "/art-zvyazok/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
+    "static/media/userfoto.png": "/art-zvyazok/static/media/userfoto.436d0d5dbd0ac3b066e0.png",
+    "static/media/profimg.png": "/art-zvyazok/static/media/profimg.c14a6cdcb61ac382342e.png",
+    "static/media/LOGO.svg": "/art-zvyazok/static/media/LOGO.68acd4652292ca327d305d8c62c41969.svg",
+    "static/media/discord.svg": "/art-zvyazok/static/media/discord.e966bc00d31b03482a417f3fe2667438.svg",
+    "static/media/Instagram.svg": "/art-zvyazok/static/media/Instagram.bbbd9b03717ab8be339c6285ad3a6540.svg",
+    "static/media/devicon_google.svg": "/art-zvyazok/static/media/devicon_google.5f39b84bfb9e5bd74a7eb7fdb4e3feac.svg",
+    "static/media/spotify.svg": "/art-zvyazok/static/media/spotify.7f23aecab440111f0d6b0e025c961f29.svg",
+    "static/media/telegram.svg": "/art-zvyazok/static/media/telegram.c076a2da97ed268a2db01c66a44f58f5.svg",
+    "static/media/load-file.svg": "/art-zvyazok/static/media/load-file.27739d3db6c90e9776c60a1c006a7e6f.svg",
+    "static/media/attach.svg": "/art-zvyazok/static/media/attach.20811ac9cb6146c86a44bc3aa8127328.svg",
+    "static/media/check-box-done.svg": "/art-zvyazok/static/media/check-box-done.1b02946690cad3093510684597a37430.svg",
+    "static/media/hide_icon.svg": "/art-zvyazok/static/media/hide_icon.d602116ec73724c8b1a34e2116c4afaa.svg",
+    "index.html": "/art-zvyazok/index.html",
+    "static/media/profile.svg": "/art-zvyazok/static/media/profile.dbe8e5ca1bfeb13d49fba3ad0da42990.svg",
+    "static/media/attention.svg": "/art-zvyazok/static/media/attention.4a9fe0471a9111e201095c3aceec9649.svg",
+    "static/media/show_icon.svg": "/art-zvyazok/static/media/show_icon.4d1f427dbf1ac35488d0c0989aceb145.svg",
+    "static/media/check-box.svg": "/art-zvyazok/static/media/check-box.48b0cb2943e669a9131c8eed66e86d48.svg",
+    "static/media/send.svg": "/art-zvyazok/static/media/send.4a5e0d971cc110ebbde950ce3dd4c123.svg",
+    "static/media/read.svg": "/art-zvyazok/static/media/read.4db9dd5a6412e0f1112856e6a8926216.svg",
+    "static/media/arrow-up.svg": "/art-zvyazok/static/media/arrow-up.672f52d65d333e2f3daae92bd746e904.svg",
+    "static/media/arrow-down.svg": "/art-zvyazok/static/media/arrow-down.000c2d533af5f4f5830ce0cc182efa56.svg",
+    "static/media/selector-arrow.svg": "/art-zvyazok/static/media/selector-arrow.24c87fd84b43dab936e608a1c094e879.svg",
+    "main.1dd91de8.css.map": "/art-zvyazok/static/css/main.1dd91de8.css.map",
+    "main.c1f12d7b.js.map": "/art-zvyazok/static/js/main.c1f12d7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1dd91de8.css",
+    "static/js/main.c1f12d7b.js"
+  ]
+}

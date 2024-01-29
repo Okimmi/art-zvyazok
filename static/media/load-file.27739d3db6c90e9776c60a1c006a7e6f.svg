@@ -1,0 +1,33 @@
+<svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="35" height="37" fill="#F5F5F5"/>
+<g id="&#209;&#128;&#208;&#181;&#209;&#148;&#209;&#129;&#209;&#130;&#209;&#128;&#208;&#176;&#209;&#134;&#209;&#150;&#209;&#143; 2">
+<rect width="1920" height="1053" transform="translate(-361 -809)" fill="url(#paint0_linear_28_4)"/>
+<g id="&#209;&#128;&#208;&#181;&#209;&#148;&#209;&#129;&#209;&#130;&#209;&#128;&#208;&#176;&#209;&#134;&#209;&#150;&#209;&#143;">
+<rect x="-79.5" y="-669.5" width="545" height="872" rx="33.5" stroke="url(#paint1_linear_28_4)" stroke-width="3"/>
+<g id="&#209;&#150;&#208;&#189;&#208;&#191;&#209;&#131;&#209;&#130;&#208;&#184;">
+<g id="&#209;&#132;&#208;&#190;&#209;&#130;&#208;&#190;">
+<g id="download">
+<rect x="-32.5" y="-31.5" width="100" height="100" rx="50"/>
+<g id="Group">
+<path id="Vector" d="M27 19.6503L17.5523 29M17.5523 29L8 19.6503M17.5523 29V1" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M1 20V31.0769C1 32.3826 1.49668 33.6348 2.38078 34.5581C3.26488 35.4813 4.46398 36 5.71429 36H29.2857C30.536 36 31.7351 35.4813 32.6192 34.5581C33.5033 33.6348 34 32.3826 34 31.0769V20" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_28_4" x1="960" y1="0" x2="960" y2="1053" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2A005E"/>
+<stop offset="0.463542" stop-color="#0D001C"/>
+</linearGradient>
+<linearGradient id="paint1_linear_28_4" x1="-81" y1="-226.556" x2="442.381" y2="-113.042" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="0.310417"/>
+<stop offset="0.576042"/>
+<stop offset="0.820833" stop-color="#EBC0FF"/>
+<stop offset="1" stop-color="#DEC4FF"/>
+</linearGradient>
+</defs>
+</svg>
