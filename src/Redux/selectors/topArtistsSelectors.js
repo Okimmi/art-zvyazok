@@ -1,0 +1,1 @@
+export const selectTopArtists = state => state.topArtists;
