@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, refreshUser, register, editUser } from 'api';
-import { updateUserData } from './actions';
+import {
+  logIn,
+  logOut,
+  refreshUser,
+  register,
+  editUser,
+} from 'Redux/auth/operations';
+import { updateUserData } from '../actions';
 import { toast } from 'react-toastify';
 
 const initialState = {
@@ -11,8 +17,8 @@ const initialState = {
   isError: null,
 };
 
-const userEmailSlice = createSlice({
-  name: 'user',
+const authSlice = createSlice({
+  name: 'auth',
   initialState: initialState,
   extraReducers: builder => {
     //fullfilled
@@ -73,5 +79,5 @@ const userEmailSlice = createSlice({
   },
 });
 
-export const { setEmail } = userEmailSlice.actions;
-export const userEmailReducer = userEmailSlice.reducer;
+export const { setEmail } = authSlice.actions;
+export const authReducer = authSlice.reducer;

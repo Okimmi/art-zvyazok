@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 import { ReactComponent as ShowIcon } from '../../icons/show_icon.svg';
 import { ReactComponent as HideIcon } from '../../icons/hide_icon.svg';
+import attentionIcon from '../../icons/attention.svg';
 
 export const EnterContainer = styled.div`
   position: relative;
@@ -153,5 +154,25 @@ export const GoogleButton = styled.button`
 
   &:hover {
     border-color: #6f5492;
+  }
+`;
+
+export const ErMessWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #a884d6;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(${attentionIcon});
   }
 `;

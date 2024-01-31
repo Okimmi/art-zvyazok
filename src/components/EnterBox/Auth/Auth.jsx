@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import { ReactComponent as GoogleIcon } from '../../../icons/devicon_google.svg';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'api';
+import { logIn } from 'Redux/auth/operations';
 import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthInput } from 'components/AuthInput/AuthInput';
@@ -24,19 +24,12 @@ import {
 
 const validationSchema1 = Yup.object({
   email: Yup.string()
-    .email('Невірний формат електронної пошти')
-    .min(5, 'Must be min 5 characters')
-    .max(35, 'Must be 15 characters or less')
     .matches(
-      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/,
-      'Допускаються лише латинські символи та цифри'
+      /^[A-Za-z0-9._-]+@([a-zA-Z0-9-]+.{1})+[a-zA-Z0-9-]{2,}$/,
+      'Невірний формат електронної пошти'
     )
-    .required('Поле "Email" є обов\'язковим'),
-  password: Yup.string()
-    .min(5, 'Довжина від 8 до 16 символів')
-    .max(20, 'Довжина від 8 до 16 символів')
-    // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/, 'Пароль повинен містити щонайменше: одну велику букву, одну малу букву, одну цифру.')
-    .required('Поле "Пароль" є обов\'язковим'),
+    .required("Поле є обов'язковим"),
+  password: Yup.string().required("Поле є обов'язковим"),
 });
 
 export const Auth = ({ onToggleClick }) => {

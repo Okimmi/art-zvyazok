@@ -1,4 +1,4 @@
-import { selectUser } from 'Redux/selectors/authSelectors';
+import { selectUser } from 'Redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import profileImg from './userfoto.png';

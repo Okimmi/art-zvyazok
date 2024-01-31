@@ -1,5 +1,9 @@
 import { Btn } from './Button.styled';
 
-export const Button = ({ children }) => {
-  return <Btn type="submit">{children}</Btn>;
+export const Button = ({ children, isLoading }) => {
+  return (
+    <Btn type="submit" disabled={isLoading}>
+      {children}
+    </Btn>
+  );
 };

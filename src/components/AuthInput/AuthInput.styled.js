@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Field, ErrorMessage } from 'formik';
-import attentionIcon from '../../icons/attention.svg';
+import { Field } from 'formik';
 
 export const FieldWrapper = styled.div`
   ${({ $isRequired }) =>
@@ -49,28 +48,6 @@ export const StyledField = styled(Field)`
   }
 `;
 
-export const ErMess = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  color: #a884d6;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.5;
-
-  &::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-image: url(${attentionIcon});
-  }
-`;
-
-export const ErMessPass = styled(ErrorMessage)`
-  position: absolute;
-  top: 36%;
-  color: red;
+export const ErMessText = styled.p`
+  width: fit-content;
 `;

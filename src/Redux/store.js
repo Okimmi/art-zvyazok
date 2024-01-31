@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { userEmailReducer } from './userAuthSlice';
+import { authReducer } from './auth/slice';
 // import { updateUserTimestampsMiddleware } from "./middleware";
 import storage from 'redux-persist/lib/storage';
 import {
@@ -24,7 +24,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    user: persistReducer(authPersistConfig, userEmailReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     chat: chatReducer,
     topArtists: userTopArtistsReducer,
   },

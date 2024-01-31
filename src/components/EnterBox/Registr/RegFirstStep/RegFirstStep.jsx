@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { AuthInput } from 'components/AuthInput/AuthInput';
 import {
   EnterTitle,
+  ErMessWrapper,
   EyeBtn,
   GoogleButton,
   InputList,
@@ -21,28 +22,49 @@ import {
 } from 'components/EnterBox/EnterBox.styled';
 import { Button } from 'components/Global/Button/Button';
 
-const validationSchema1 = Yup.object({
+import { $instance } from 'Redux/constants';
+
+const validationSchema = Yup.object({
   email: Yup.string()
-    .email('Невірний формат електронної пошти')
-    .min(5, 'Must be min 5 characters')
-    .max(30, 'Must be 30 characters or less')
     .matches(
-      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/,
-      'Допускаються лише латинські символи та цифри'
+      /^[A-Za-z0-9._-]+@([a-zA-Z0-9-]+.{1})+[a-zA-Z0-9-]{2,}$/,
+      'Невірний формат електронної пошти'
     )
-    .required('Поле "Email" є обов\'язковим'),
+    .required("Поле є обов'язковим"),
   password: Yup.string()
-    .min(5, 'Довжина від 8 до 16 символів')
-    .max(20, 'Довжина від 8 до 16 символів')
+    .min(6, 'Довжина паролю має бути від 6 до 18 символів')
+    .max(18, 'Довжина паролю має бути від 6 до 18 символів')
     .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
       'Пароль повинен містити щонайменше: одну велику букву, одну малу букву, одну цифру.'
     )
-    .required('Поле "Пароль" є обов\'язковим'),
+    .required("Поле є обов'язковим"),
+  repeatPassword: Yup.string()
+    .oneOf(
+      [Yup.ref('password'), null],
+      'Повторний пароль не збігається з введеним.'
+    )
+    .required("Поле є обов'язковим"),
 });
 
 export const RegFirstStep = ({ onChange, onNextStep }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const finishFirstStep = async (values, actions) => {
+    try {
+      setIsLoading(true);
+      const res = await $instance.get(`/api/User/ue/${values.email}`);
+      if (res.status === 200) {
+        setIsAlreadyRegistered(true);
+      }
+    } catch (error) {
+      onNextStep();
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -53,14 +75,8 @@ export const RegFirstStep = ({ onChange, onNextStep }) => {
           password: '',
           repeatPassword: '',
         }}
-        validationSchema={validationSchema1}
-        onSubmit={(values, actions) => {
-          onNextStep();
-          // console.log('Submitted:', values);
-          // dispatch(updateUserData(values));
-          // actions.resetForm();
-          // navigate('/user');
-        }}
+        validationSchema={validationSchema}
+        onSubmit={finishFirstStep}
       >
         <StyledForm>
           <InputList>
@@ -69,6 +85,9 @@ export const RegFirstStep = ({ onChange, onNextStep }) => {
               type="email"
               placeholder="Email"
               name="email"
+              clearState={() => {
+                isAlreadyRegistered && setIsAlreadyRegistered(false);
+              }}
             />
             <AuthInput
               isRequired={true}
@@ -91,7 +110,15 @@ export const RegFirstStep = ({ onChange, onNextStep }) => {
               </EyeBtn>
             </AuthInput>
           </InputList>
-          <Button type="submit">Продовжити</Button>
+          {isAlreadyRegistered && (
+            <ErMessWrapper>
+              Користувач з таким імʼям вже зареєстрований.
+            </ErMessWrapper>
+          )}
+
+          <Button type="submit" isLoading={isLoading}>
+            Продовжити
+          </Button>
         </StyledForm>
       </Formik>
 

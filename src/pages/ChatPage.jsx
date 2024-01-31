@@ -1,5 +1,5 @@
 import { fetchAll } from 'Redux/chat/chatOperations';
-import { selectUserId } from 'Redux/selectors/authSelectors';
+import { selectUserId } from 'Redux/auth/selectors';
 import { Chat } from 'components/Chat/Chat';
 import { PageContainer } from 'components/Container/Container.styled';
 import { useEffect } from 'react';
