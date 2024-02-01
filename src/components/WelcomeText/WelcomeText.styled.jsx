@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const WelcomeBox = styled.div`
   width: 780px;
+  height: fit-content;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0) 0%,
@@ -9,10 +10,14 @@ export const WelcomeBox = styled.div`
   );
   padding: 32px 48px;
   border-radius: 35px;
+
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
 `;
 
 export const Title = styled.p`
-  margin-bottom: 16px;
   color: #b182ff;
   font-family: 'Montserrat Alternates';
   font-size: 22px;
@@ -21,11 +26,7 @@ export const Title = styled.p`
 `;
 
 export const DescrTxt = styled.p`
-  margin-bottom: 16px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.5;
+  margin-top: 16px;
 `;
 
 export const List = styled.ul`

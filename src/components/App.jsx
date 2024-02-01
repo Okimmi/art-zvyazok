@@ -4,7 +4,7 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ChatPage } from 'pages/ChatPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshUser } from '../Redux/auth/operations';
+import { refresh } from '../Redux/auth/operations';
 import { MainPage } from 'pages/MainPage';
 import { PrivateRoute } from 'PrivateRoute';
 import { RestrictedRoute } from 'RestrictedRoute';
@@ -17,7 +17,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshUser());
+    dispatch(refresh());
   }, [dispatch]);
 
   return (

@@ -47,20 +47,26 @@ const validationSchema = Yup.object({
     .required("Поле є обов'язковим"),
 });
 
-export const RegFirstStep = ({ onChange, onNextStep }) => {
+export const RegFirstStep = ({
+  onChange,
+  onNextStep,
+  userData,
+  setUserData,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const finishFirstStep = async (values, actions) => {
+  const finishFirstStep = async values => {
     try {
       setIsLoading(true);
-      const res = await $instance.get(`/api/User/ue/${values.email}`);
-      if (res.status === 200) {
-        setIsAlreadyRegistered(true);
-      }
+      await $instance.get(`/api/User/ue/${values.email}`);
+      setIsAlreadyRegistered(true);
     } catch (error) {
-      onNextStep();
+      if (error.response.status === 404) {
+        setUserData(values);
+        onNextStep();
+      }
     } finally {
       setIsLoading(false);
     }
@@ -70,11 +76,13 @@ export const RegFirstStep = ({ onChange, onNextStep }) => {
     <>
       <EnterTitle>РЕЄСТРАЦІЯ</EnterTitle>
       <Formik
-        initialValues={{
-          email: '',
-          password: '',
-          repeatPassword: '',
-        }}
+        initialValues={
+          userData || {
+            email: '',
+            password: '',
+            repeatPassword: '',
+          }
+        }
         validationSchema={validationSchema}
         onSubmit={finishFirstStep}
       >

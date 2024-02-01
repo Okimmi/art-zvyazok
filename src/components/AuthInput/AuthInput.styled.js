@@ -32,7 +32,7 @@ export const StyledField = styled(Field)`
   border-radius: 15px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid ${({ error }) => (error ? '#E33629' : '#d0bfed')};
+  border: 1px solid ${({ $error }) => ($error ? '#E33629' : '#d0bfed')};
   font-size: 18px;
   font-weight: 400;
   transition: border-color var(--animation-time) var(--animation-cubic);

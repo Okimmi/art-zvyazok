@@ -13,7 +13,7 @@ export const Select = ({ isRequired, type, name, children }) => {
       <StyledField
         type={type}
         {...field}
-        error={meta.touched && meta.error}
+        $error={meta.touched && meta.error}
         component="select"
         className={field.value === '' ? 'placeholder' : ''}
       >

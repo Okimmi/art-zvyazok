@@ -1,6 +1,4 @@
-// import { selectUser } from 'Redux/selectors/authSelectors';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import {
   SocialMediaList,
@@ -14,7 +12,6 @@ import { ReactComponent as Instagram } from '../../images/Instagram.svg';
 import { ReactComponent as Discord } from '../../images/discord.svg';
 import { ReactComponent as Telegram } from '../../images/telegram.svg';
 import { ReactComponent as Spotify } from '../../images/spotify.svg';
-import { useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { Formik } from 'formik';
 import { InputList, StyledForm } from 'components/EnterBox/EnterBox.styled';
@@ -23,61 +20,53 @@ import { Button } from 'components/Global/Button/Button';
 import { Select } from 'components/Global/Select/Select';
 import { Checkbox } from 'components/Global/Checkbox/Checkbox';
 import { ReactComponent as LoadFileIcon } from '../../icons/load-file.svg';
+import { register } from 'Redux/auth/operations';
 
 const validationSchema = Yup.object({
-  nickname: Yup.string().required('Поле "Nickname" є обов\'язковим'),
-  specialization: Yup.string().required('Поле "Спеціалізація" є обов\'язковим'),
+  username: Yup.string().required('Поле "Nickname" є обов\'язковим'),
+  roles: Yup.string().required('Поле "Спеціалізація" є обов\'язковим'),
   city: Yup.string().required('Поле "Місто" є обов\'язковим'),
   description: Yup.string(),
-  instagram: Yup.string(),
-  discord: Yup.string(),
-  telegram: Yup.string(),
-  spotify: Yup.string(),
+  instagramLink: Yup.string(),
+  discordLink: Yup.string(),
+  telegramLink: Yup.string(),
+  spotifyLink: Yup.string(),
 });
 
-export const UserForm = () => {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const ActivUser = useSelector(selectUser);
+export const UserForm = ({ userData }) => {
+  const dispatch = useDispatch();
 
-  const handleRefresh = () => {};
-
-  useEffect(() => {
-    handleRefresh();
-  });
+  const handleSubmit = values => {
+    dispatch(register({ ...userData, ...values }));
+  };
 
   return (
     <Formik
       initialValues={{
-        nickname: '',
-        specialization: '',
+        username: '',
+        roles: '',
         city: '',
-        remotely: false,
+        isRemote: false,
         description: '',
-        instagram: '',
-        discord: '',
-        telegram: '',
-        spotify: '',
+        instagramLink: '',
+        discordLink: '',
+        telegramLink: '',
+        spotifyLink: '',
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, actions) => {
-        // console.log('Submitted:', values);
-        // dispatch(updateUserData(values));
-        // actions.resetForm();
-        // navigate('/user');
-      }}
+      onSubmit={handleSubmit}
     >
       <StyledForm>
         <InputList>
-          <AuthInput isRequired={true} placeholder="Nickname" name="nickname" />
-          <Select isRequired={true} name="specialization">
-            <option value="" disabled selected>
+          <AuthInput isRequired={true} placeholder="Nickname" name="username" />
+          <Select isRequired={true} name="roles" defaultValue="">
+            <option value="" disabled>
               Спеціалізація
             </option>
-            <option value="musician">Музикант</option>
+            <option value="0">Музикант</option>
           </Select>
           <AuthInput isRequired={true} placeholder="Місто" name="city" />
-          <Checkbox name="remotely">Я можу працювати дистанційно</Checkbox>
+          <Checkbox name="isRemote">Я можу працювати дистанційно</Checkbox>
           <AuthInput
             isRequired={false}
             placeholder="Опис профілю"
@@ -123,7 +112,6 @@ export const UserForm = () => {
             <UploadInput
               type="file"
               id="file-input"
-              // onChange={}
               accept="image/*, .png, .jpeg, .gif, .web"
             />
             <PhotoBox>

@@ -1,4 +1,12 @@
 import { styled } from 'styled-components';
+import { ReactComponent as BackArrow } from '../../../icons/back-arrow.svg';
+
+export const Arrow = styled(BackArrow)`
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  cursor: pointer;
+`;
 
 export const Step = styled.span`
   position: absolute;

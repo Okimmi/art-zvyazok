@@ -28,7 +28,7 @@ export const AuthInput = ({
         type={type}
         placeholder={placeholder}
         {...field}
-        error={meta.touched && meta.error}
+        $error={meta.touched && meta.error}
         onChange={handleChange}
       />
       {meta.touched && meta.error && (

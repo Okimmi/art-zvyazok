@@ -27,10 +27,6 @@ export const Btn = styled.button`
       #a92be4 55.08%,
       #892dff 73.65%
     );
-
-    &:disabled {
-      background: #c0c0c0;
-    }
   }
 
   &:active {
@@ -40,5 +36,9 @@ export const Btn = styled.button`
       #e227b3 52.76%,
       #c629cc 87.34%
     );
+  }
+
+  &:disabled {
+    background: #c0c0c0;
   }
 `;

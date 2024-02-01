@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { $instance } from 'Redux/constants';
-// import { getUser } from "Redux/selectors";
 
 const setAuthHeader = token => {
   $instance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -48,31 +47,25 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-export const refreshUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.user.token;
-    console.log(persistedToken);
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
-
-    try {
-      setAuthHeader(persistedToken.accessToken);
-      console.log(persistedToken);
-      const res = await $instance.post('/api/Token/refresh', persistedToken);
-
-      console.log(res.data);
-
-      const resUser = await $instance.get('/api/User/details');
-
-      return { token: res.data, user: resUser.data };
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
-    }
+export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistedToken = state.auth.token;
+  if (persistedToken === null) {
+    return thunkAPI.rejectWithValue('Unable to fetch user');
   }
-);
+
+  try {
+    setAuthHeader(persistedToken.accessToken);
+    // const res = await $instance.post('/api/Token/refresh', persistedToken);
+
+    const resUser = await $instance.get('/api/User/details');
+
+    // return { token: res.data, user: resUser.data };
+    return { user: resUser.data };
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data);
+  }
+});
 
 export const GetAll = createAsyncThunk('auth/GetAll', async (_, thunkAPI) => {
   try {
