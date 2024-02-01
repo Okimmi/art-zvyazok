@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/art-zvyazok/static/css/main.1dd91de8.css",
-    "main.js": "/art-zvyazok/static/js/main.25540e8d.js",
+    "main.js": "/art-zvyazok/static/js/main.fc58c3b4.js",
     "static/media/MontserratAlternates-Black.ttf": "/art-zvyazok/static/media/MontserratAlternates-Black.53c65844392081267032.ttf",
     "static/media/MontserratAlternates-Regular.ttf": "/art-zvyazok/static/media/MontserratAlternates-Regular.17043267bfe178ef8921.ttf",
     "static/media/Montserrat-Regular.ttf": "/art-zvyazok/static/media/Montserrat-Regular.ceb11275ab638627a643.ttf",
@@ -14,6 +14,7 @@
     "static/media/spotify.svg": "/art-zvyazok/static/media/spotify.7f23aecab440111f0d6b0e025c961f29.svg",
     "static/media/telegram.svg": "/art-zvyazok/static/media/telegram.c076a2da97ed268a2db01c66a44f58f5.svg",
     "static/media/load-file.svg": "/art-zvyazok/static/media/load-file.27739d3db6c90e9776c60a1c006a7e6f.svg",
+    "static/media/back-arrow.svg": "/art-zvyazok/static/media/back-arrow.f7e75942722c3c48274b296e99760f06.svg",
     "static/media/attach.svg": "/art-zvyazok/static/media/attach.20811ac9cb6146c86a44bc3aa8127328.svg",
     "static/media/check-box-done.svg": "/art-zvyazok/static/media/check-box-done.1b02946690cad3093510684597a37430.svg",
     "static/media/hide_icon.svg": "/art-zvyazok/static/media/hide_icon.d602116ec73724c8b1a34e2116c4afaa.svg",
@@ -28,10 +29,10 @@
     "static/media/arrow-down.svg": "/art-zvyazok/static/media/arrow-down.000c2d533af5f4f5830ce0cc182efa56.svg",
     "static/media/selector-arrow.svg": "/art-zvyazok/static/media/selector-arrow.24c87fd84b43dab936e608a1c094e879.svg",
     "main.1dd91de8.css.map": "/art-zvyazok/static/css/main.1dd91de8.css.map",
-    "main.25540e8d.js.map": "/art-zvyazok/static/js/main.25540e8d.js.map"
+    "main.fc58c3b4.js.map": "/art-zvyazok/static/js/main.fc58c3b4.js.map"
   },
   "entrypoints": [
     "static/css/main.1dd91de8.css",
-    "static/js/main.25540e8d.js"
+    "static/js/main.fc58c3b4.js"
   ]
 }
