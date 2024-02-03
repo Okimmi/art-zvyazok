@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import styled from 'styled-components';
 
 export const UserSection = styled.div`
@@ -104,6 +105,7 @@ export const PhotoBox = styled.div`
   align-items: center;
   width: 101px;
   height: 101px;
+  overflow: hidden;
   border-radius: 50%;
   border: 1px solid #d0bfed;
   stroke: #d0bfed;
@@ -115,6 +117,6 @@ export const PhotoBox = styled.div`
   }
 `;
 
-export const UploadInput = styled.input`
+export const UploadInput = styled(Field)`
   display: none;
 `;

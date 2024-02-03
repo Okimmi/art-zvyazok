@@ -7,13 +7,12 @@ import {
   editUser,
 } from 'Redux/auth/operations';
 import { updateUserData } from '../actions';
-import { toast } from 'react-toastify';
 
 const initialState = {
   user: {},
   token: { accessToken: null, refreshToken: null },
   isLoggedIn: false,
-  isRefreshing: false,
+  isLoading: false,
   isError: null,
 };
 
@@ -27,16 +26,16 @@ const authSlice = createSlice({
       state.token.accessToken = action.payload.token.accessToken.token;
       state.token.refreshToken = action.payload.token.refreshToken;
       state.isLoggedIn = true;
-      toast.success('Ласкаво просимо!');
+      state.isLoading = false;
     });
     builder.addCase(register.fulfilled, (state, action) => {
       state.user = action.payload.user;
       state.token.accessToken = action.payload.token.accessToken.token;
       state.token.refreshToken = action.payload.token.refreshToken;
       state.isLoggedIn = true;
+      state.isLoading = false;
     });
     builder.addCase(editUser.fulfilled, (state, action) => {
-      toast.success('Данні змінено');
       return {
         ...state,
         user: action.payload.user,
@@ -44,13 +43,14 @@ const authSlice = createSlice({
           accessToken: action.payload.token.accessToken.token,
           refreshToken: action.payload.token.refreshToken,
         },
-        isLoggedIn: true,
+        isLoading: false,
       };
     });
     builder.addCase(logOut.fulfilled, (state, action) => {
-      state.user = { name: null, email: null };
+      state.user = {};
       state.token = null;
       state.isLoggedIn = false;
+      state.isLoading = false;
     });
     builder.addCase(refresh.fulfilled, (state, action) => {
       state.user = action.payload.user;
@@ -58,22 +58,33 @@ const authSlice = createSlice({
       // state.token.refreshToken = action.payload.token.refreshToken;
       state.user = action.payload.user;
       state.isLoggedIn = true;
-      state.isRefreshing = false;
+      state.isLoading = false;
     });
     builder.addCase(updateUserData, (state, action) => {
       state.user = { ...state.user, ...action.payload };
-      state.isLoggedIn = true;
+      state.isLoading = false;
     });
     //pending
     builder.addCase(refresh.pending, state => {
-      state.isRefreshing = true;
+      state.isLoading = true;
+    });
+    builder.addCase(logIn.pending, state => {
+      state.isLoading = true;
+    });
+    builder.addCase(register.pending, state => {
+      state.isLoading = true;
     });
     //rejected
-    builder.addCase(refresh.rejected, state => {
-      state.isRefreshing = false;
+    builder.addCase(refresh.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = action.payload;
     });
     builder.addCase(logIn.rejected, (state, action) => {
-      state.isRefreshing = false;
+      state.isLoading = false;
+      state.isError = action.payload;
+    });
+    builder.addCase(register.rejected, (state, action) => {
+      state.isLoading = false;
       state.isError = action.payload;
     });
   },

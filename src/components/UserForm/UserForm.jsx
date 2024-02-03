@@ -21,6 +21,7 @@ import { Select } from 'components/Global/Select/Select';
 import { Checkbox } from 'components/Global/Checkbox/Checkbox';
 import { ReactComponent as LoadFileIcon } from '../../icons/load-file.svg';
 import { register } from 'Redux/auth/operations';
+import { useState } from 'react';
 
 const validationSchema = Yup.object({
   username: Yup.string().required('Поле "Nickname" є обов\'язковим'),
@@ -35,9 +36,32 @@ const validationSchema = Yup.object({
 
 export const UserForm = ({ userData }) => {
   const dispatch = useDispatch();
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [avatar, setAvatar] = useState(null);
 
   const handleSubmit = values => {
-    dispatch(register({ ...userData, ...values }));
+    dispatch(
+      register({
+        email: userData.email,
+        password: userData.password,
+        avatar,
+        ...values,
+      })
+    );
+  };
+
+  const handleAvatarUpload = e => {
+    const file = e.target.files[0];
+    setAvatar(file);
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setAvatarUrl(reader.result);
+    };
+
+    if (avatar) {
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -80,7 +104,7 @@ export const UserForm = ({ userData }) => {
               <AuthInput
                 isRequired={false}
                 placeholder="Instagram"
-                name="instagram"
+                name="instagramLink"
               />
             </SocialMediaItem>
             <SocialMediaItem>
@@ -88,7 +112,7 @@ export const UserForm = ({ userData }) => {
               <AuthInput
                 isRequired={false}
                 placeholder="Discord"
-                name="discord"
+                name="discordLink"
               />
             </SocialMediaItem>
             <SocialMediaItem>
@@ -96,7 +120,7 @@ export const UserForm = ({ userData }) => {
               <AuthInput
                 isRequired={false}
                 placeholder="Telegram"
-                name="telegram"
+                name="telegramLink"
               />
             </SocialMediaItem>
             <SocialMediaItem>
@@ -104,18 +128,24 @@ export const UserForm = ({ userData }) => {
               <AuthInput
                 isRequired={false}
                 placeholder="Spotify"
-                name="spotify"
+                name="spotifyLink"
               />
             </SocialMediaItem>
           </SocialMediaList>
           <PhotoLoaderWrapper>
             <UploadInput
+              name="avatar"
               type="file"
               id="file-input"
               accept="image/*, .png, .jpeg, .gif, .web"
+              onChange={handleAvatarUpload}
             />
             <PhotoBox>
-              <LoadFileIcon />
+              {avatarUrl ? (
+                <img src={avatarUrl} alt="Uploaded avatar" />
+              ) : (
+                <LoadFileIcon />
+              )}
             </PhotoBox>
             <Text>Завантажити фото профілю</Text>
           </PhotoLoaderWrapper>

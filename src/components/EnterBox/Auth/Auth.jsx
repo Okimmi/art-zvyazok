@@ -23,12 +23,7 @@ import {
 } from 'components/EnterBox/EnterBox.styled';
 
 const validationSchema1 = Yup.object({
-  email: Yup.string()
-    .matches(
-      /^[A-Za-z0-9._-]+@([a-zA-Z0-9-]+.{1})+[a-zA-Z0-9-]{2,}$/,
-      'Невірний формат електронної пошти'
-    )
-    .required("Поле є обов'язковим"),
+  credential: Yup.string().required("Поле є обов'язковим"),
   password: Yup.string().required("Поле є обов'язковим"),
 });
 
@@ -41,14 +36,14 @@ export const Auth = ({ onToggleClick }) => {
       <EnterTitle>ВХІД В АКАУНТ</EnterTitle>
       <Formik
         initialValues={{
-          email: '',
+          credential: '',
           password: '',
         }}
         validationSchema={validationSchema1}
         onSubmit={(values, actions) => {
           dispatch(
             logIn({
-              email: values.email,
+              credential: values.credential,
               password: values.password,
             })
           );
@@ -58,9 +53,9 @@ export const Auth = ({ onToggleClick }) => {
           <InputList>
             <AuthInput
               isRequired={true}
-              type="email"
-              placeholder="Email"
-              name="email"
+              type="credential"
+              placeholder="Email або Username"
+              name="credential"
             />
             <AuthInput
               isRequired={true}
