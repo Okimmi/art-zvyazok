@@ -17,9 +17,15 @@ export const Wrapper = styled.label`
 
 export const Text = styled.p`
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  letter-spacing: -0.012rem;
+  text-align: start;
   line-height: normal;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+  }
 `;
 
 export const Box = styled(Field)`

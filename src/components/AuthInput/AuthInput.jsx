@@ -1,6 +1,6 @@
 import { useField } from 'formik';
-import { ErMessText, FieldWrapper, StyledField } from './AuthInput.styled';
-import { ErMessWrapper } from 'components/EnterBox/EnterBox.styled';
+import { FieldWrapper, StyledField } from './AuthInput.styled';
+import { ErMessText, ErMessWrapper } from 'components/EnterBox/EnterBox.styled';
 
 export const AuthInput = ({
   isRequired,

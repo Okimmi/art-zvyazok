@@ -7,11 +7,11 @@ import {
   PhotoBox,
   PhotoLoaderWrapper,
   UploadInput,
-} from './UserForm.styled';
-import { ReactComponent as Instagram } from '../../images/Instagram.svg';
-import { ReactComponent as Discord } from '../../images/discord.svg';
-import { ReactComponent as Telegram } from '../../images/telegram.svg';
-import { ReactComponent as Spotify } from '../../images/spotify.svg';
+} from './RegSecondStep.styled';
+import { ReactComponent as Instagram } from '../../../../images/Instagram.svg';
+import { ReactComponent as Discord } from '../../../../images/discord.svg';
+import { ReactComponent as Telegram } from '../../../../images/telegram.svg';
+import { ReactComponent as Spotify } from '../../../../images/spotify.svg';
 import 'react-toastify/dist/ReactToastify.css';
 import { Formik } from 'formik';
 import { InputList, StyledForm } from 'components/EnterBox/EnterBox.styled';
@@ -19,7 +19,7 @@ import { AuthInput } from 'components/AuthInput/AuthInput';
 import { Button } from 'components/Global/Button/Button';
 import { Select } from 'components/Global/Select/Select';
 import { Checkbox } from 'components/Global/Checkbox/Checkbox';
-import { ReactComponent as LoadFileIcon } from '../../icons/load-file.svg';
+import { ReactComponent as LoadFileIcon } from '../../../../icons/load-file.svg';
 import { register } from 'Redux/auth/operations';
 import { useState } from 'react';
 
@@ -34,7 +34,7 @@ const validationSchema = Yup.object({
   spotifyLink: Yup.string(),
 });
 
-export const UserForm = ({ userData }) => {
+export const RegSecondStep = ({ userData }) => {
   const dispatch = useDispatch();
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [avatar, setAvatar] = useState(null);

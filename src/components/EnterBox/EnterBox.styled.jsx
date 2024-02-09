@@ -3,23 +3,37 @@ import { Form } from 'formik';
 import { ReactComponent as ShowIcon } from '../../icons/show_icon.svg';
 import { ReactComponent as HideIcon } from '../../icons/hide_icon.svg';
 import attentionIcon from '../../icons/attention.svg';
+import googleIcon from '../../icons/devicon_google.svg';
 
 export const EnterContainer = styled.div`
   position: relative;
   text-align: center;
-  width: 548px;
-  padding: 48px;
+  width: 100%;
+  height: fit-content;
+  padding: 22px 18px;
   border: solid 3px #ffcce8;
   border-radius: 35px;
-  margin-bottom: 314px;
+
+  @media screen and (min-width: 390px) {
+    width: 342px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 548px;
+    padding: 48px;
+  }
 `;
 
 export const EnterTitle = styled.h2`
   color: var(--h-1, #ff82c6);
-  font-size: 26px;
+  font-size: 24px;
   font-family: Montserrat Alternates;
   font-weight: 500;
   line-height: normal;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 26px;
+  }
 `;
 
 export const InputList = styled.div`
@@ -67,7 +81,7 @@ export const Text = styled.div`
   align-items: center;
   margin: 16px 0;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
 
@@ -78,6 +92,10 @@ export const Text = styled.div`
     width: 100%;
     height: 1px;
     background-color: #6f5492;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
   }
 `;
 
@@ -90,14 +108,17 @@ export const UnderBtnBox = styled.div`
 export const UnderBtnTxt = styled.div`
   color: #fff;
   font-family: Montserrat;
-  font-size: 18px;
-  font-style: normal;
+  font-size: 16px;
   font-weight: 500;
   line-height: normal;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+  }
 `;
 export const RegistTxt = styled.div`
   font-family: Montserrat Alternates;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: normal;
   background: var(--pink-btn);
@@ -132,19 +153,23 @@ export const RegistTxt = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+  }
 `;
 
 export const GoogleButton = styled.button`
   width: 100%;
   display: flex;
-  height: 63px;
+  height: 56px;
   padding: 12px 24px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   background-color: transparent;
   font-family: Montserrat Alternates;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
   color: #fff;
@@ -152,19 +177,38 @@ export const GoogleButton = styled.button`
   border: 1px solid #533778;
   cursor: pointer;
 
+  &::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(${googleIcon});
+    background-size: contain;
+
+    @media screen and (min-width: 1440px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
   &:hover {
     border-color: #6f5492;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 63px;
+    font-size: 18px;
   }
 `;
 
 export const ErMessWrapper = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
-  gap: 8px;
+  align-items: start;
+  gap: 11px;
   margin-top: 8px;
   color: #a884d6;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
 
@@ -174,5 +218,18 @@ export const ErMessWrapper = styled.div`
     width: 24px;
     height: 24px;
     background-image: url(${attentionIcon});
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    gap: 8px;
+  }
+`;
+
+export const ErMessText = styled.p`
+  width: fit-content;
+  text-align: start;
 `;

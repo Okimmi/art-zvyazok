@@ -5,12 +5,12 @@ export const Btn = styled.button`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 63px;
+  height: 56px;
   padding: 12px 24px;
   border-radius: 20px;
   border: none;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: normal;
   background: var(--pink-btn);
@@ -40,5 +40,10 @@ export const Btn = styled.button`
 
   &:disabled {
     background: #c0c0c0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 63px;
+    font-size: 20px;
   }
 `;

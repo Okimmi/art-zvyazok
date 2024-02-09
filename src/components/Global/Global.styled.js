@@ -1,16 +1,15 @@
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 24px 20px 40px 20px;
+  padding: 114px 24px 40px 24px;
   margin: 0 auto;
-  margin-top: 56px;
 
-  @media screen and (max-width: 319px) {
+  @media screen and (max-width: 389px) {
     width: 100%;
   }
 
-  @media screen and (min-width: 320px) {
-    width: 320px;
+  @media screen and (min-width: 390px) {
+    width: 390px;
   }
 
   @media screen and (min-width: 768px) {
@@ -22,6 +21,6 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 1440px;
     margin-top: 112px;
-    padding: 26px 40px 40px 40px;
+    padding: 82px 40px 40px 40px;
   }
 `;

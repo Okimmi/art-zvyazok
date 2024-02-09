@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Field } from 'formik';
 
 export const FieldWrapper = styled.div`
+  width: 100%;
   ${({ $isRequired }) =>
     $isRequired &&
     css`
@@ -26,7 +27,7 @@ export const FieldWrapper = styled.div`
 `;
 
 export const StyledField = styled(Field)`
-  height: ${({ component }) => (component === 'textarea' ? '115px' : '48px')};
+  height: ${({ component }) => (component === 'textarea' ? '120px' : '48px')};
   width: 100%;
   padding: 12px;
   border-radius: 15px;
@@ -46,8 +47,8 @@ export const StyledField = styled(Field)`
   &::placeholder {
     color: #78739a;
   }
-`;
 
-export const ErMessText = styled.p`
-  width: fit-content;
+  @media screen and (min-width: 1440px) {
+    height: ${({ component }) => (component === 'textarea' ? '115px' : '48px')};
+  }
 `;

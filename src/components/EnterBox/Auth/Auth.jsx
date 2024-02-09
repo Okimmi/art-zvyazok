@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import { ReactComponent as GoogleIcon } from '../../../icons/devicon_google.svg';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/operations';
@@ -24,7 +23,14 @@ import {
 
 const validationSchema1 = Yup.object({
   credential: Yup.string().required("Поле є обов'язковим"),
-  password: Yup.string().required("Поле є обов'язковим"),
+  password: Yup.string()
+    .min(6, 'Довжина паролю має бути від 6 до 18 символів')
+    .max(18, 'Довжина паролю має бути від 6 до 18 символів')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+      'Пароль повинен містити щонайменше: одну велику букву, одну малу букву, одну цифру.'
+    )
+    .required("Поле є обов'язковим"),
 });
 
 export const Auth = ({ onToggleClick }) => {
@@ -78,10 +84,7 @@ export const Auth = ({ onToggleClick }) => {
         <span>або</span>
       </Text>
 
-      <GoogleButton>
-        <GoogleIcon></GoogleIcon>
-        Продовжити з Google
-      </GoogleButton>
+      <GoogleButton>Продовжити з Google</GoogleButton>
 
       <UnderBtnBox>
         <UnderBtnTxt>Вперше тут?</UnderBtnTxt>

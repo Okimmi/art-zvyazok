@@ -1,10 +1,6 @@
 import { useField } from 'formik';
-import {
-  CustomArrow,
-  ErMess,
-  FieldWrapper,
-  StyledField,
-} from './Select.styled';
+import { CustomArrow, FieldWrapper, StyledField } from './Select.styled';
+import { ErMessText, ErMessWrapper } from 'components/EnterBox/EnterBox.styled';
 
 export const Select = ({ isRequired, type, name, children }) => {
   const [field, meta] = useField(name);
@@ -20,7 +16,11 @@ export const Select = ({ isRequired, type, name, children }) => {
         {children}
       </StyledField>
       <CustomArrow />
-      {meta.touched && meta.error && <ErMess>{meta.error}</ErMess>}
+      {meta.touched && meta.error && (
+        <ErMessWrapper>
+          <ErMessText>{meta.error}</ErMessText>
+        </ErMessWrapper>
+      )}
     </FieldWrapper>
   );
 };

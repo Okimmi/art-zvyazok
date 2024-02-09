@@ -1,13 +1,9 @@
 import { Formik } from 'formik';
-import { ReactComponent as GoogleIcon } from '../../../../images/devicon_google.svg';
-// import { useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-// import { updateUserData } from 'Redux/actions';
 import { useState } from 'react';
 import { AuthInput } from 'components/AuthInput/AuthInput';
 import {
-  EnterTitle,
+  ErMessText,
   ErMessWrapper,
   EyeBtn,
   GoogleButton,
@@ -74,7 +70,6 @@ export const RegFirstStep = ({
 
   return (
     <>
-      <EnterTitle>РЕЄСТРАЦІЯ</EnterTitle>
       <Formik
         initialValues={
           userData || {
@@ -120,7 +115,9 @@ export const RegFirstStep = ({
           </InputList>
           {isAlreadyRegistered && (
             <ErMessWrapper>
-              Користувач з таким імʼям вже зареєстрований.
+              <ErMessText>
+                Користувач з таким імʼям вже зареєстрований.
+              </ErMessText>
             </ErMessWrapper>
           )}
 
@@ -134,10 +131,7 @@ export const RegFirstStep = ({
         <span>або</span>
       </Text>
 
-      <GoogleButton>
-        <GoogleIcon></GoogleIcon>
-        Продовжити з Google
-      </GoogleButton>
+      <GoogleButton>Продовжити з Google</GoogleButton>
 
       <UnderBtnBox>
         <UnderBtnTxt>Маєш акаунт?</UnderBtnTxt>

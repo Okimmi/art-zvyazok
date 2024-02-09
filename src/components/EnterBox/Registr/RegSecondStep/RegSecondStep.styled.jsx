@@ -75,16 +75,24 @@ export const UserSocial = styled.div`
 export const Text = styled.p`
   text-align: start;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+  }
 `;
 
 export const SocialMediaList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 16px 0;
+
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const SocialMediaItem = styled.li`
@@ -105,6 +113,8 @@ export const PhotoBox = styled.div`
   align-items: center;
   width: 101px;
   height: 101px;
+  min-width: 101px;
+  min-height: 101px;
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid #d0bfed;
