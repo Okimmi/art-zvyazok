@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { $instance } from 'Redux/constants';
 
-export const fetchAll = createAsyncThunk(
-  'chat/fetchAll',
+export const fetchAllChats = createAsyncThunk(
+  'chat/fetchAllChats',
   async (userId, thunkAPI) => {
     try {
       const response = await $instance.get(`/api/Chat/inbox?userId=${userId}`);

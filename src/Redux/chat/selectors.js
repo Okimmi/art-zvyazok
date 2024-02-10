@@ -1,18 +1,18 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectChatType = state => state.chat.isGeneralChat;
+export const selectIsGeneralChatType = state => state.chat.isGeneralChat;
 
 export const selectChatList = state => state.chat.chatList;
 
 export const selectActiveChatTopic = state => state.chat.activeChat?.topic;
 
-export const selectChatMembers = state => state.chat.activeChat.members;
+export const selectChatMembers = state => state.chat.activeChat?.members;
 
 export const selectMemberaNumber = state =>
   state.chat.activeChat?.members.length;
 
 export const selectCurrentChatList = createSelector(
-  [selectChatType, selectChatList],
+  [selectIsGeneralChatType, selectChatList],
   (type, list) => {
     return list.filter(({ isPublic }) => isPublic === type);
   }

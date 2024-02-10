@@ -14,7 +14,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { userTopArtistsReducer } from './newsSlice';
-import { chatReducer } from './chat/chatSlice';
+import { chatReducer } from './chat/slice';
 
 const authPersistConfig = {
   key: 'root',

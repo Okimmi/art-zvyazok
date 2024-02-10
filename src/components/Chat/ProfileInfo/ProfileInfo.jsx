@@ -12,7 +12,7 @@ import {
   ProfTxt,
 } from './ProfileInfo.styled';
 
-export const ProfileInfo = () => {
+export const ProfileInfo = ({ isBoxOpen }) => {
   return (
     <>
       <ProfHead>
@@ -22,24 +22,28 @@ export const ProfileInfo = () => {
       <ProfTextBox>
         <ProfTxt>Музикант</ProfTxt>
         <ProfTxt>Київ, Дистанційно</ProfTxt>
-        <Overview>
-          Привіт! Я вокаліст в групі ТАКА і я буду радий співпраці. Також граю
-          на гітарі та піаніно.
-        </Overview>
-        <MediaList>
-          <li>
-            <Instagram />
-          </li>
-          <li>
-            <Discord />
-          </li>
-          <li>
-            <Telegram />
-          </li>
-          <li>
-            <Spotify />
-          </li>
-        </MediaList>
+        {isBoxOpen && (
+          <>
+            <Overview>
+              Привіт! Я вокаліст в групі ТАКА і я буду радий співпраці. Також
+              граю на гітарі та піаніно.
+            </Overview>
+            <MediaList>
+              <li>
+                <Instagram />
+              </li>
+              <li>
+                <Discord />
+              </li>
+              <li>
+                <Telegram />
+              </li>
+              <li>
+                <Spotify />
+              </li>
+            </MediaList>
+          </>
+        )}
       </ProfTextBox>
     </>
   );

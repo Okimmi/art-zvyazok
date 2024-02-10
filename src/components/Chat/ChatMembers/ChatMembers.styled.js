@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h2`
-  margin: 0 auto;
+  text-align: center;
 
   color: #ff82c6;
   font-family: Montserrat Alternates;
@@ -9,45 +9,66 @@ export const Title = styled.h2`
   font-weight: 400;
 `;
 
-export const MemberInfoContainer = styled.div`
-  display: flex;
-  gap: 10px;
-
+export const MembersList = styled.ul`
   color: #fff;
   font-family: Montserrat Alternates;
   font-size: 14px;
   font-weight: 400;
 `;
 
-export const RowFirst = styled.p`
-  :not(:last-child) {
-    margin-right: 10px;
+export const MemberItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 32px;
   }
+`;
 
+export const MemberInfoContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+`;
+
+export const RowFirst = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
   margin-bottom: 8px;
 `;
 
 export const RowSecond = styled.p`
-  :not(:last-child) {
-    margin-right: 16px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
 `;
 
-export const Name = styled.span`
+export const Name = styled.div`
   font-weight: 500;
   font-size: 16px;
 `;
 
-export const Status = styled.span`
+export const Status = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   font-size: 12px;
 
   &::before {
     content: '';
-    display: inline-block;
-    margin-right: 8px;
+    display: block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #ff82c6;
   }
+`;
+
+export const Avatar = styled.div`
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  overflow: hidden;
 `;

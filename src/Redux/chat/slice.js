@@ -1,4 +1,4 @@
-import { fetchAll, fetchActiveChat } from './chatOperations';
+import { fetchAllChats, fetchActiveChat } from './operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -21,15 +21,15 @@ const chatSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(fetchAll.fulfilled, (state, action) => {
+    builder.addCase(fetchAllChats.fulfilled, (state, action) => {
       state.chatList = action.payload.items;
       state.isLoading = false;
       state.error = false;
     });
-    builder.addCase(fetchAll.pending, state => {
+    builder.addCase(fetchAllChats.pending, state => {
       state.isLoading = true;
     });
-    builder.addCase(fetchAll.rejected, state => {
+    builder.addCase(fetchAllChats.rejected, state => {
       state.isLoading = false;
       state.error = true;
     });

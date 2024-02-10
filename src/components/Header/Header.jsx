@@ -27,7 +27,7 @@ export const Header = () => {
         {isLoggedIn && (
           <Nav>
             <StyledNavLink to="/main">Головна</StyledNavLink>
-            <StyledNavLink to="/list_of_chats">Чати</StyledNavLink>
+            <StyledNavLink to="/chat">Чати</StyledNavLink>
             <StyledNavLink to="#">Контакти</StyledNavLink>
             <StyledNavLink href="">Правила</StyledNavLink>
             <ProfBox>

@@ -1,16 +1,16 @@
 import { HeaderBox, HeaderLink } from './ChatListBoxHeader.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { setChatType } from 'Redux/chat/chatSlice';
+import { setChatType } from 'Redux/chat/slice';
 import {
-  selectChatType,
+  selectIsGeneralChatType,
   selectFirstPublicChat,
   selectFirstPrivateChat,
-} from 'Redux/selectors/chatSelectors';
+} from 'Redux/chat/selectors';
 
 export const ChatListBoxHeader = () => {
   const dispatch = useDispatch();
-  const isGeneralChat = useSelector(selectChatType);
+  const isGeneralChat = useSelector(selectIsGeneralChatType);
   const location = useLocation();
   const firstPublicChat = useSelector(selectFirstPublicChat);
   const firstPrivateChat = useSelector(selectFirstPrivateChat);

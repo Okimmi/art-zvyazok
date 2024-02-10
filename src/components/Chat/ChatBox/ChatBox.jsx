@@ -10,19 +10,19 @@ import { CurrentChat } from '../CurrentChat/CurrentChat';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectActiveChatTopic,
-  selectChatType,
+  selectIsGeneralChatType,
   selectMemberaNumber,
-} from 'Redux/selectors/chatSelectors';
+} from 'Redux/chat/selectors';
 import { CompanionAvatar } from '../CompanionAvatar/CompanionAvatar';
 import { InputForMess } from '../InputForMess/InputForMess';
 import { useEffect } from 'react';
-import { fetchActiveChat } from 'Redux/chat/chatOperations';
+import { fetchActiveChat } from 'Redux/chat/operations';
 import { useLocation } from 'react-router-dom';
 
 export const ChatBox = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const isGeneralChat = useSelector(selectChatType);
+  const isGeneralChat = useSelector(selectIsGeneralChatType);
   const chatTopic = useSelector(selectActiveChatTopic);
   const membersNumber = useSelector(selectMemberaNumber);
 

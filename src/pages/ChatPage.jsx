@@ -1,4 +1,4 @@
-import { fetchAll } from 'Redux/chat/chatOperations';
+import { fetchAllChats } from 'Redux/chat/operations';
 import { selectUserId } from 'Redux/auth/selectors';
 import { Chat } from 'components/Chat/Chat';
 import { PageContainer } from 'components/Container/Container.styled';
@@ -11,7 +11,7 @@ export const ChatPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAll(userId));
+    dispatch(fetchAllChats(userId));
   }, [dispatch, userId]);
 
   return (

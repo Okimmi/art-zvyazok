@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { ChatItemText } from './ChatList.styled';
-import { selectCurrentChatList } from 'Redux/selectors/chatSelectors';
+import { selectCurrentChatList } from 'Redux/chat/selectors';
 import { useLocation } from 'react-router-dom';
 
 export const ChatList = () => {
