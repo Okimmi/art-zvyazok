@@ -22,16 +22,37 @@ import { Checkbox } from 'components/Global/Checkbox/Checkbox';
 import { ReactComponent as LoadFileIcon } from '../../../../icons/load-file.svg';
 import { register } from 'Redux/auth/operations';
 import { useState } from 'react';
+import { rolesDictionary } from 'dictionaries/roles';
 
 const validationSchema = Yup.object({
   username: Yup.string().required('Поле "Nickname" є обов\'язковим'),
   roles: Yup.string().required('Поле "Спеціалізація" є обов\'язковим'),
   city: Yup.string().required('Поле "Місто" є обов\'язковим'),
   description: Yup.string(),
-  instagramLink: Yup.string(),
-  discordLink: Yup.string(),
-  telegramLink: Yup.string(),
-  spotifyLink: Yup.string(),
+  instagramLink: Yup.string()
+    .nullable()
+    .matches(
+      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+      'Некоректный URL'
+    ),
+  discordLink: Yup.string()
+    .nullable()
+    .matches(
+      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+      'Некоректный URL'
+    ),
+  telegramLink: Yup.string()
+    .nullable()
+    .matches(
+      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+      'Некоректный URL'
+    ),
+  spotifyLink: Yup.string()
+    .nullable()
+    .matches(
+      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/,
+      'Некоректный URL'
+    ),
 });
 
 export const RegSecondStep = ({ userData }) => {
@@ -72,10 +93,10 @@ export const RegSecondStep = ({ userData }) => {
         city: '',
         isRemote: false,
         description: '',
-        instagramLink: '',
-        discordLink: '',
-        telegramLink: '',
-        spotifyLink: '',
+        instagramLink: null,
+        discordLink: null,
+        telegramLink: null,
+        spotifyLink: null,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -87,7 +108,9 @@ export const RegSecondStep = ({ userData }) => {
             <option value="" disabled>
               Спеціалізація
             </option>
-            <option value="0">Музикант</option>
+            {Object.entries(rolesDictionary).map(([key, value]) => (
+              <option value={key}>{value}</option>
+            ))}
           </Select>
           <AuthInput isRequired={true} placeholder="Місто" name="city" />
           <Checkbox name="isRemote">Я можу працювати дистанційно</Checkbox>

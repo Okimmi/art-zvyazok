@@ -69,7 +69,10 @@ export const Auth = ({ onToggleClick }) => {
               placeholder="Пароль"
               name="password"
             >
-              <EyeBtn onClick={() => setShowPassword(!showPassword)}>
+              <EyeBtn
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
                 {showPassword ? <StyledShowIcon /> : <StyledHideIcon />}
               </EyeBtn>
             </AuthInput>

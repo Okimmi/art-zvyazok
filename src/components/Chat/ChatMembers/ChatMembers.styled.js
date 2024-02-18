@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import defaultAvatar from '../../../images/default-avatar.jpg';
 
 export const Title = styled.h2`
   text-align: center;
@@ -69,6 +70,7 @@ export const Avatar = styled.div`
   min-width: 50px;
   min-height: 50px;
   border-radius: 50%;
-  background-color: red;
+  background-image: url(${defaultAvatar});
+  background-size: cover;
   overflow: hidden;
 `;
